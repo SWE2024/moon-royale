@@ -147,6 +147,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4199904936951208931}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4432267204872493473}
   m_SourcePrefab: {fileID: 100100000, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
 --- !u!4 &5164666412470722095 stripped
 Transform:
@@ -170,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1740412533
+  GlobalObjectIdHash: 699983752
   InScenePlacedSourceGlobalObjectIdHash: 1382228770
   DeferredDespawnTick: 0
   Ownership: 1
@@ -361,3 +364,16 @@ MonoBehaviour:
       m_Action: Player Controls
       m_Flags: 8
     m_Flags: 0
+--- !u!114 &-4432267204872493473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541472708589847701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bccfda49e6c01489bb75a663a93c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 166862329110503680, guid: fe4f3d31838a69041bda86c563e0b08e, type: 3}
