@@ -12,10 +12,14 @@ public class GameManager : MonoBehaviour
         hostButton.onClick.AddListener(() =>
         {
             NetworkManager.Singleton.StartHost();
+            hostButton.interactable = false;
+            clientButton.interactable = false;
         });
         clientButton.onClick.AddListener(() =>
         {
             NetworkManager.Singleton.StartClient();
+            hostButton.interactable = false;
+            clientButton.interactable = false;
         });
     }
 }

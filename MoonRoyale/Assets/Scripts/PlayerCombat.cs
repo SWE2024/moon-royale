@@ -11,6 +11,6 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Input.GetButton("");
     }
 }
