@@ -202,9 +202,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &-4122568897879658783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,8 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimation: {fileID: 299645235265082315}
   playerRigid: {fileID: 1239669022137316245}
-  walking: 0
-  playerTrans: {fileID: 5600722438871327290}
+  walking: 1
 --- !u!114 &-8042544890098060438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+  playerRb: {fileID: 1239669022137316245}
   playerControls:
     m_Name: Player Controls
     m_Type: 0
@@ -300,8 +300,3 @@ MonoBehaviour:
       m_Action: Player Controls
       m_Flags: 8
     m_Flags: 0
---- !u!4 &5600722438871327290 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
-  m_PrefabInstance: {fileID: 5346751456731022801}
-  m_PrefabAsset: {fileID: 0}

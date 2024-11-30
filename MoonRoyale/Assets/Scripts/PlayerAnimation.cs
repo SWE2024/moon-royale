@@ -2,39 +2,20 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    public Animator playerAnimation;
-    public Rigidbody playerRigid;
-    public bool walking;
+    [SerializeField] private Animator playerAnimation;
+    private bool walking;
 
-    void FixedUpdate()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            playerAnimation.SetTrigger("walk");
-            playerAnimation.ResetTrigger("idle");
-            walking = true;
-        }
+        walking = false;
+    }
+    
+    private void FixedUpdate()
+    {
+        bool walking = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||
+                         Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
 
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            playerAnimation.ResetTrigger("walk");
-            playerAnimation.SetTrigger("idle");
-            walking = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            playerAnimation.SetTrigger("walkBack");
-            playerAnimation.ResetTrigger("idle");
-            walking = true;
-        }
-
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            playerAnimation.ResetTrigger("walkBack");
-            playerAnimation.SetTrigger("idle");
-            walking = false;
-        }
+        playerAnimation.SetBool("walking", walking);
 
         if (Input.GetKey(KeyCode.W))
         {
