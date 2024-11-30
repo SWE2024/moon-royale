@@ -17,11 +17,16 @@ public class PlayerCombat : NetworkBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Rigidbody p = Instantiate(bullet, new Vector3(transform.position.x, 1.25f, transform.position.z), transform.rotation, transform); // create the bullet at players position
-            p.linearVelocity = transform.forward * speed;
+            Rigidbody bulletObject = Instantiate(bullet, new Vector3(transform.position.x, 1.25f, transform.position.z), transform.rotation); // create the bullet at players position
 
-            
-            Destroy(p.gameObject, 2.0f); // destroy the bullet from memory after 2s 
+            Bullet bulletScript = bulletObject.GetComponent<Bullet>();
+            bulletScript.SetAttacker(OwnerClientId);
+
+            Debug.Log($"{OwnerClientId} shot a bullet");
+
+            bulletObject.linearVelocity = transform.forward * speed;
+
+            Destroy(bulletObject.gameObject, 2.0f); // destroy the bullet from memory after 2s 
         }
     }
 }

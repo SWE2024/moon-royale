@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 166862329110503680}
   - component: {fileID: 8346400056430085397}
   - component: {fileID: 8896110490157108622}
-  - component: {fileID: 2012915096209975890}
+  - component: {fileID: -494915319095223294}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -163,7 +163,7 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &2012915096209975890
+--- !u!114 &-494915319095223294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
