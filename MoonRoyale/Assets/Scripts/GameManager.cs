@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
 
-public class UI : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;

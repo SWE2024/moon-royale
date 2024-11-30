@@ -12,8 +12,7 @@ public class PlayerAnimation : MonoBehaviour
     
     private void FixedUpdate()
     {
-        bool walking = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||
-                         Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+        walking = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
 
         playerAnimation.SetBool("walking", walking);
 
