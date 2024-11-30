@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       propertyPath: m_Name
-      value: Astro
+      value: Astronaut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82,7 +82,13 @@ PrefabInstance:
       addedObject: {fileID: 1239669022137316245}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       insertIndex: -1
+      addedObject: {fileID: -4122568897879658783}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1696223361360689240}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8042544890098060438}
   m_SourcePrefab: {fileID: 100100000, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
 --- !u!1 &5112170305804859520 stripped
 GameObject:
@@ -101,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1389336702
+  GlobalObjectIdHash: 1382228770
   InScenePlacedSourceGlobalObjectIdHash: 4290520098
   DeferredDespawnTick: 0
   Ownership: 1
@@ -128,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   NetworkTransformExpanded: 0
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
@@ -149,7 +155,7 @@ MonoBehaviour:
   InLocalSpace: 0
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
-  SlerpPosition: 0
+  SlerpPosition: 1
 --- !u!95 &299645235265082315
 Animator:
   serializedVersion: 7
@@ -199,6 +205,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &-4122568897879658783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112170305804859520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkRigidbodyBaseExpanded: 0
+  UseRigidBodyForMotion: 0
+  AutoUpdateKinematicState: 1
+  AutoSetKinematicOnDespawn: 1
 --- !u!114 &1696223361360689240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,12 +236,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimation: {fileID: 299645235265082315}
   playerRigid: {fileID: 1239669022137316245}
-  w_speed: 120
-  olw_speed: 120
-  rn_speed: 160
-  ro_speed: 90
   walking: 0
   playerTrans: {fileID: 5600722438871327290}
+--- !u!114 &-8042544890098060438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112170305804859520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c323c7a2e8d1d5441a7d67c2a2c101d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  playerControls:
+    m_Name: Player Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 049e95c3-01f8-428b-b74d-7b3b78a39f02
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: WASD
+      m_Id: bd6d0659-3df3-4217-bf75-4820549de2c7
+      m_Path: 3DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 4
+    - m_Name: left
+      m_Id: 8b6e1f52-1651-45f3-a739-cd6135c4c30a
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: e9d221fb-f5e7-4061-980d-8766399f8aa0
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: forward
+      m_Id: 67c03b4f-9183-4cfc-ac0a-b443300c0711
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: backward
+      m_Id: c8f7cbb5-9c47-42f0-be6b-c4ef71e3234c
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    m_Flags: 0
 --- !u!4 &5600722438871327290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
