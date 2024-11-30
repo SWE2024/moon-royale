@@ -1,5 +1,5 @@
-using System.Linq;
 using Unity.Netcode;
+using Unity.Networking.Transport;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,9 +35,16 @@ public class PlayerMovement : NetworkBehaviour
 
         Vector3 direction = playerControls.ReadValue<Vector3>();
         Vector3 newPlayerPosition = transform.position + (direction * walkSpeed * Time.deltaTime);
-        Vector3 newCameraPosition = Camera.main.transform.position + (direction * walkSpeed * Time.deltaTime);
 
-        playerRb.MovePosition(newPlayerPosition); // move the player rigidbody
-        Camera.main.transform.position = new Vector3(newPlayerPosition.x, 10f, newPlayerPosition.z - 5f); // move the camera above and behind the player
+        if (InBounds(newPlayerPosition))
+        {
+            playerRb.MovePosition(newPlayerPosition); // move the player rigidbody
+            Camera.main.transform.position = new Vector3(newPlayerPosition.x, 10f, newPlayerPosition.z - 5f); // move the camera above and behind the player
+        }
+    }
+
+    private bool InBounds(Vector3 position)
+    {
+        return position.x > -4 && position.x < 4 && position.z > -4 && position.z < 4;
     }
 }
