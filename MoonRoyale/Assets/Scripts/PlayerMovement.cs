@@ -1,5 +1,4 @@
 using Unity.Netcode;
-using Unity.Networking.Transport;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,12 +20,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Awake()
     {
-        walkSpeed = 3.5f;
-    }
-
-    private void Update()
-    {
-        
+        walkSpeed = 3.0f;
     }
 
     private void FixedUpdate()

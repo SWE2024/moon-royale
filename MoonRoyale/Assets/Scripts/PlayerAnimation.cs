@@ -1,8 +1,8 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimation : NetworkBehaviour
 {
-    [SerializeField] private Animator playerAnimation;
     private bool walking;
 
     private void Awake()
@@ -12,9 +12,11 @@ public class PlayerAnimation : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (!IsOwner) return; // stop the player being able to move other characters
+
         walking = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
 
-        playerAnimation.SetBool("walking", walking);
+        GetComponent<Animator>().SetBool("walking", walking);
 
         if (Input.GetKey(KeyCode.W))
         {
