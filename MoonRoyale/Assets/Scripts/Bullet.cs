@@ -1,4 +1,3 @@
-using System;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -6,6 +5,13 @@ public class Bullet : NetworkBehaviour
 {
     private ulong attacker;
     private ulong target;
+
+    private float speed;
+
+    private void Awake()
+    {
+        speed = 25.0f;
+    }
 
     public void SetAttacker(ulong attacker)
     {
@@ -27,16 +33,24 @@ public class Bullet : NetworkBehaviour
         return target;
     }
 
-    void OnTriggerEnter(Collider collision)
+    public float GetSpeed()
     {
-        if (attacker == collision.gameObject.GetComponentInParent<NetworkObject>().OwnerClientId) return; // ignore collisions with yourself
+        return speed;
+    }
 
-        try
+    private void Update()
+    {
+        
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        target = collision.gameObject.GetComponentInParent<NetworkObject>().OwnerClientId;
+
+        if (attacker != target)
         {
-            // BULLET HIT PLAYER
-            target = collision.gameObject.GetComponentInParent<NetworkObject>().OwnerClientId;
-            Debug.Log(attacker + " hit " + target);
+            // handle shot here
+            Debug.Log($"{attacker} hit {target}");
         }
-        catch (Exception) { /* bullet did not hit a player / raised an unexpected exception */ }
     }
 }
