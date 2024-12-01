@@ -1,20 +1,38 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerCombat : NetworkBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
-    private float speed;
+
+    private TextMeshProUGUI ammoText;
+    private TextMeshProUGUI healthText;
+
+    private float ammo;
+    private float health;
 
     void Start()
     {
-        speed = 20.0f;
+        ammoText = GameObject.Find("GameAmmo").GetComponent<TextMeshProUGUI>();
+        healthText = GameObject.Find("GameHealth").GetComponent<TextMeshProUGUI>();
+
+        ammo = 5f;
+        health = 100f;
+
+        ammoText.text = $"Ammo: {ammo}";
+        healthText.text = $"Health: {health}";
     }
 
     void Update()
     {
-        if (IsOwner && Input.GetMouseButtonDown(0))
+        ammoText.color = (ammo <= 1) ? Color.red : Color.white;
+        healthText.color = (health <= 20) ? Color.red : Color.white;
+
+        if (IsOwner && Input.GetMouseButtonDown(0) && ammo > 0)
         {
+            ammo -= 1;
+            ammoText.text = $"Ammo: {ammo}";
             FireBulletServerRpc();
         }
     }
@@ -29,11 +47,12 @@ public class PlayerCombat : NetworkBehaviour
         NetworkObject bulletNetworkObject = bulletGameObject.GetComponent<NetworkObject>();
         bulletNetworkObject.Spawn();
 
+
         Bullet bulletScript = bulletGameObject.GetComponent<Bullet>();
         bulletScript.SetAttacker(OwnerClientId);
 
         Rigidbody rb = bulletGameObject.GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.forward * speed;
+        rb.linearVelocity = transform.forward * bulletScript.GetSpeed();
 
         Destroy(bulletGameObject, 2.0f);
     }

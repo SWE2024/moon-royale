@@ -6,6 +6,13 @@ public class Bullet : NetworkBehaviour
     private ulong attacker;
     private ulong target;
 
+    private float speed;
+
+    private void Awake()
+    {
+        speed = 25.0f;
+    }
+
     public void SetAttacker(ulong attacker)
     {
         this.attacker = attacker;
@@ -26,6 +33,11 @@ public class Bullet : NetworkBehaviour
         return target;
     }
 
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
     private void Update()
     {
         
@@ -35,13 +47,9 @@ public class Bullet : NetworkBehaviour
     {
         target = collision.gameObject.GetComponentInParent<NetworkObject>().OwnerClientId;
 
-        // handle damage etc
-        if (attacker == target)
+        if (attacker != target)
         {
-            Debug.Log($"{attacker} shot");
-        } 
-        else
-        {
+            // handle shot here
             Debug.Log($"{attacker} hit {target}");
         }
     }
