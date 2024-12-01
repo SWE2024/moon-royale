@@ -13,10 +13,8 @@ public class PlayerCombat : NetworkBehaviour
 
     void Update()
     {
-        if (!IsOwner) return;
-        if (Input.GetMouseButtonDown(0))
+        if (IsOwner && Input.GetMouseButtonDown(0))
         {
-            Vector3 direction = new Vector3(transform.position.x, 1.25f, transform.position.z);
             FireBulletServerRpc();
         }
     }
@@ -30,6 +28,9 @@ public class PlayerCombat : NetworkBehaviour
 
         NetworkObject bulletNetworkObject = bulletGameObject.GetComponent<NetworkObject>();
         bulletNetworkObject.Spawn();
+
+        Bullet bulletScript = bulletGameObject.GetComponent<Bullet>();
+        bulletScript.SetAttacker(OwnerClientId);
 
         Rigidbody rb = bulletGameObject.GetComponent<Rigidbody>();
         rb.linearVelocity = transform.forward * speed;

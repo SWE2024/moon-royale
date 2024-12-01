@@ -375,4 +375,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  bulletPrefab: {fileID: 3134338163069591606, guid: b675198f9106aa647b9b86d6649f9c0f, type: 3}
+  bulletPrefab: {fileID: 4536645774703621432, guid: 9d7dca2bf4691b24ca9c0bed23b65c36, type: 3}
