@@ -140,6 +140,9 @@ PrefabInstance:
       addedObject: {fileID: 7164815270189475625}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       insertIndex: -1
+      addedObject: {fileID: -1136705514811253906}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 4576347473883166513}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       insertIndex: -1
@@ -271,6 +274,21 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!114 &-1136705514811253906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541472708589847701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 8497283832116504603}
 --- !u!114 &4576347473883166513
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class Bullet : NetworkBehaviour
     {
         return target;
     }
-    
+
     void OnTriggerEnter(Collider collision)
     {
         if (attacker == collision.gameObject.GetComponentInParent<NetworkObject>().OwnerClientId) return; // ignore collisions with yourself
