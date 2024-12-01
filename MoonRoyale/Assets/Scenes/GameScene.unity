@@ -465,7 +465,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 70
+  field of view: 50.6
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1162409118}
-    PlayerPrefab: {fileID: 5541472708589847701, guid: 6694f3d5267ced34ba8dd837fe35af3e, type: 3}
+    PlayerPrefab: {fileID: 4331461292314914809, guid: ce9170ace625ab742abe9f4de4de98b8, type: 3}
     Prefabs:
       NetworkPrefabsLists:
       - {fileID: 11400000, guid: 5096bf26df15e1b48a5e56e22e1afacc, type: 2}
