@@ -143,9 +143,6 @@ PrefabInstance:
       addedObject: {fileID: -1136705514811253906}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4576347473883166513}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6297729700532138444}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a09ed363cd8d945b86ef002508f7d4, type: 3}
       insertIndex: -1
@@ -179,7 +176,7 @@ MonoBehaviour:
   GlobalObjectIdHash: 699983752
   InScenePlacedSourceGlobalObjectIdHash: 1382228770
   DeferredDespawnTick: 0
-  Ownership: 1
+  Ownership: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -223,8 +220,8 @@ MonoBehaviour:
   UseHalfFloatPrecision: 0
   InLocalSpace: 0
   SwitchTransformSpaceWhenParented: 0
-  Interpolate: 1
-  SlerpPosition: 1
+  Interpolate: 0
+  SlerpPosition: 0
 --- !u!95 &8497283832116504603
 Animator:
   serializedVersion: 7
@@ -289,23 +286,6 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   TransitionStateInfoList: []
   m_Animator: {fileID: 8497283832116504603}
---- !u!114 &4576347473883166513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5541472708589847701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkRigidbodyBaseExpanded: 0
-  UseRigidBodyForMotion: 0
-  AutoUpdateKinematicState: 1
-  AutoSetKinematicOnDespawn: 1
 --- !u!114 &6297729700532138444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,4 +375,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  bullet: {fileID: 166862329110503680, guid: fe4f3d31838a69041bda86c563e0b08e, type: 3}
+  bulletPrefab: {fileID: 3134338163069591606, guid: b675198f9106aa647b9b86d6649f9c0f, type: 3}

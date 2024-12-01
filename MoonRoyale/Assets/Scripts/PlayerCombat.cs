@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerCombat : NetworkBehaviour
 {
-    [SerializeField] Rigidbody bullet;
+    [SerializeField] GameObject bulletPrefab;
     private float speed;
 
     void Start()
@@ -14,19 +14,26 @@ public class PlayerCombat : NetworkBehaviour
     void Update()
     {
         if (!IsOwner) return;
-
         if (Input.GetMouseButtonDown(0))
         {
-            Rigidbody bulletObject = Instantiate(bullet, new Vector3(transform.position.x, 1.25f, transform.position.z), transform.rotation); // create the bullet at players position
-
-            Bullet bulletScript = bulletObject.GetComponent<Bullet>();
-            bulletScript.SetAttacker(OwnerClientId);
-
-            Debug.Log($"{OwnerClientId} shot a bullet");
-
-            bulletObject.linearVelocity = transform.forward * speed;
-
-            Destroy(bulletObject.gameObject, 2.0f); // destroy the bullet from memory after 2s 
+            Vector3 direction = new Vector3(transform.position.x, 1.25f, transform.position.z);
+            FireBulletServerRpc();
         }
+    }
+
+    [ServerRpc]
+    void FireBulletServerRpc()
+    {
+        if (!IsServer) return;
+
+        GameObject bulletGameObject = Instantiate(bulletPrefab, new Vector3(transform.position.x, 1.25f, transform.position.z), transform.rotation);
+
+        NetworkObject bulletNetworkObject = bulletGameObject.GetComponent<NetworkObject>();
+        bulletNetworkObject.Spawn();
+
+        Rigidbody rb = bulletGameObject.GetComponent<Rigidbody>();
+        rb.linearVelocity = transform.forward * speed;
+
+        Destroy(bulletGameObject, 2.0f);
     }
 }

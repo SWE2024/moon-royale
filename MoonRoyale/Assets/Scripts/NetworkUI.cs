@@ -24,7 +24,7 @@ public class NetworkUI : MonoBehaviour
             serverButton.interactable = false;
             clientButton.interactable = false;
 
-            NetworkManager.Singleton.StartHost();
+            NetworkManager.Singleton.StartServer();
         });
         clientButton.onClick.AddListener(() =>
         {

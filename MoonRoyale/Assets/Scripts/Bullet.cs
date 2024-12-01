@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class Bullet : NetworkBehaviour
 {
+    private float lifetime;
+
     private ulong attacker;
     private ulong target;
+
+    private void Awake()
+    {
+        this.lifetime = 2f;
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, lifetime); // destroy the bullet after lifetime seconds
+    }
 
     public void SetAttacker(ulong attacker)
     {
@@ -27,16 +39,18 @@ public class Bullet : NetworkBehaviour
         return target;
     }
 
-    void OnTriggerEnter(Collider collision)
+    private void Update()
     {
-        if (attacker == collision.gameObject.GetComponentInParent<NetworkObject>().OwnerClientId) return; // ignore collisions with yourself
-
-        try
+        if (IsServer)
         {
-            // BULLET HIT PLAYER
-            target = collision.gameObject.GetComponentInParent<NetworkObject>().OwnerClientId;
-            Debug.Log(attacker + " hit " + target);
+            transform.Translate(transform.position.x, 1.25f, transform.position.z);
         }
-        catch (Exception) { /* bullet did not hit a player / raised an unexpected exception */ }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // handle damage etc
+        // destroy bullet
+        Destroy(gameObject);
     }
 }
