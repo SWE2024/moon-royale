@@ -33,12 +33,12 @@ public class PlayerMovement : NetworkBehaviour
         if (InBounds(newPlayerPosition))
         {
             playerRb.MovePosition(newPlayerPosition); // move the player rigidbody
-            Camera.main.transform.position = new Vector3(newPlayerPosition.x, 10f, newPlayerPosition.z - 5f); // move the camera above and behind the player
+            Camera.main.transform.position = new Vector3(newPlayerPosition.x, 10f, newPlayerPosition.z - 10f); // move the camera above and behind the player
         }
     }
 
     private bool InBounds(Vector3 position)
     {
-        return position.x > -4 && position.x < 4 && position.z > -4 && position.z < 4;
+        return position.x > -18 && position.x < 18 && position.z > -18 && position.z < 18;
     }
 }

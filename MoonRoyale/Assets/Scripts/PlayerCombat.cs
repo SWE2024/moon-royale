@@ -17,7 +17,7 @@ public class PlayerCombat : NetworkBehaviour
         ammoText = GameObject.Find("GameAmmo").GetComponent<TextMeshProUGUI>();
         healthText = GameObject.Find("GameHealth").GetComponent<TextMeshProUGUI>();
 
-        ammo = 5f;
+        ammo = 30f;
         health = 100f;
 
         ammoText.text = $"Ammo: {ammo}";
@@ -42,7 +42,7 @@ public class PlayerCombat : NetworkBehaviour
     {
         if (!IsServer) return;
 
-        GameObject bulletGameObject = Instantiate(bulletPrefab, new Vector3(transform.position.x, 1.25f, transform.position.z), transform.rotation);
+        GameObject bulletGameObject = Instantiate(bulletPrefab, new Vector3(transform.position.x - 0.5f, 1.25f, transform.position.z - 0.5f), transform.rotation);
 
         NetworkObject bulletNetworkObject = bulletGameObject.GetComponent<NetworkObject>();
         bulletNetworkObject.Spawn();
